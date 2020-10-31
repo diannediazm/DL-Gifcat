@@ -36,7 +36,7 @@
         <input type="size" v-model="size">
       </div>
       <br>
-      <button type="submit">Obtener gatito</button>
+      <button type="submit" v-on:click="validar">Obtener gatito</button>
     </form>
     <section class="resultado">
       <img :src="imagen" alt="">
@@ -58,12 +58,24 @@ export default {
   },
   methods: {
     validar() {
-      if (this.titulo && this.filtro && this.color && this.size === '') {
-        alert('Debe llenar todos los campos');
+      if (this.titulo === '') {
+        alert('Favor, escriba un título');
+        return false;
+      }
+      else if (this.filtro === '') {
+        alert('Favor, elija un filtro');
+        return false;
+      }
+      else if (this.color === '') {
+        alert('Favor, elija un color');
+        return false;
+      }
+      else if (this.size === '') {
+        alert('Determine un tamaño en pixeles');
         return false;
       }
       else if (isNaN(this.size)) {
-        alert('Incluir solo números');
+        alert('En tamaño incluir solo números');
         return false;
       }
     },
