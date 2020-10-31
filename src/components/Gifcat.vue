@@ -20,7 +20,7 @@
       </div>
       <br>
        <div>
-        <label>Color: </label>
+        <label>Color: </label> 
         <select v-model="color">
           <option>red</option>
           <option>blue</option>
@@ -28,11 +28,12 @@
           <option>orange</option>
           <option>yellow</option>
         </select>
+         <span class="circulo"></span>
       </div>
       <br>
       <div>
-        <label for="titulo">Tamaño: </label>
-        <input type="titulo" v-model="size">
+        <label for="size">Tamaño: </label>
+        <input type="size" v-model="size">
       </div>
       <br>
       <button type="submit">Obtener gatito</button>
@@ -56,6 +57,16 @@ export default {
     }
   },
   methods: {
+    validar() {
+      if (this.titulo && this.filtro && this.color && this.size === '') {
+        alert('Debe llenar todos los campos');
+        return false;
+      }
+      else if (isNaN(this.size)) {
+        alert('Incluir solo números');
+        return false;
+      }
+    },
     buscarGato(){
       fetch(`https://cataas.com/cat/gif/says/${this.titulo}?filter=${this.filtro}&color=${this.color}&size=${this.size}`)
       .then(result => {
@@ -83,13 +94,22 @@ form {
   padding-bottom: 20px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  display: block;
 }
 .resultado {
   text-align: center;
   background-color: lightblue;
   font-family: Arial, Helvetica, sans-serif;
   padding-top: 20px;
-  padding-bottom: 80px;
+  padding-bottom: 300px;
   margin: 0px;
+}
+.circulo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+  display: inline-block;
+  margin-left: 10px;
 }
 </style>
