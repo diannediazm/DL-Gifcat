@@ -22,13 +22,13 @@
        <div>
         <label>Color: </label> 
         <select v-model="color">
-          <option>rojo</option>
+          <option v-bind:value="{rojo}">rojo</option>
           <option>azul</option>
           <option>verde</option>
           <option>naranjo</option>
           <option>amarillo</option>
         </select>
-         <span class="circulo"></span>
+         <span class="circulo">{{color}}</span>
       </div>
       <br>
       <div>
@@ -53,7 +53,7 @@ export default {
       filtro: '',
       color: '',
       size: '',
-      imagen: ''
+      imagen: '',
     }
   },
   methods: {
@@ -86,6 +86,15 @@ export default {
         this.imagen = result.url;
       });
     },
+    /*colorCirculo(){
+      if (this.color === "red"){
+        return {
+          myStyle: {
+            backgroundColor: "#ff311f"
+          }
+        }
+      }
+    }*/
   }
 }
 </script>
@@ -124,12 +133,5 @@ form {
   display: inline-block;
   margin-left: 10px;
 }
-.circuloRojo {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: red;
-  display: inline-block;
-  margin-left: 10px;
-}
+
 </style>
