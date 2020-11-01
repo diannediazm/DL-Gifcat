@@ -22,11 +22,11 @@
        <div>
         <label>Color: </label> 
         <select v-model="color">
-          <option>red</option>
-          <option>blue</option>
-          <option>green</option>
-          <option>orange</option>
-          <option>yellow</option>
+          <option>rojo</option>
+          <option>azul</option>
+          <option>verde</option>
+          <option>naranjo</option>
+          <option>amarillo</option>
         </select>
          <span class="circulo"></span>
       </div>
@@ -85,7 +85,7 @@ export default {
         console.log(result);
         this.imagen = result.url;
       });
-    }
+    },
   }
 }
 </script>
@@ -117,6 +117,14 @@ form {
   margin: 0px;
 }
 .circulo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  display: inline-block;
+  margin-left: 10px;
+}
+.circuloRojo {
   width: 30px;
   height: 30px;
   border-radius: 50%;
