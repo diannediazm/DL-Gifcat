@@ -22,13 +22,13 @@
        <div>
         <label>Color: </label> 
         <select v-model="color">
-          <option v-bind:value="{rojo}">rojo</option>
-          <option>azul</option>
-          <option>verde</option>
-          <option>naranjo</option>
-          <option>amarillo</option>
+          <option value="red">rojo</option>
+          <option value="blue">azul</option>
+          <option value="green">verde</option>
+          <option value="orange">naranjo</option>
+          <option value="yellow">amarillo</option>
         </select>
-         <span class="circulo">{{color}}</span>
+         <span class="circulo" :style="{backgroundColor: this.color}"></span>
       </div>
       <br>
       <div>
@@ -86,21 +86,15 @@ export default {
         this.imagen = result.url;
       });
     },
-    /*colorCirculo(){
-      if (this.color === "red"){
-        return {
-          myStyle: {
-            backgroundColor: "#ff311f"
-          }
-        }
-      }
-    }*/
   }
 }
 </script>
 
 
-<style scoped>
+<style>
+body {
+  margin: 0px !important;
+}
 h1 {
   text-align: center;
   background-color: lightblue;
